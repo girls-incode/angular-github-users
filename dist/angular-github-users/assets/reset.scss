@@ -1,0 +1,50 @@
+html,
+body,
+p,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f4f4;
+  color: black;
+}
+
+.mat-slide-toggle {
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-gray;
+  border-radius: 2px;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+h3 {
+  font-size: 0.9rem;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.fas {
+  margin-right: 10px;
+}
