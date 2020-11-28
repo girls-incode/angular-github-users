@@ -1,0 +1,9 @@
+<mat-toolbar class="header fixed-top">
+  <nav class="container nav">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
+    <app-search></app-search>
+    <mat-slide-toggle [checked]="checked" (change)="changeTheme($event)"
+      >{{checked ? 'Light': 'Dark'}}</mat-slide-toggle
+    >
+  </nav>
+</mat-toolbar>

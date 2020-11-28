@@ -1,0 +1,27 @@
+<div *ngFor="let user of users" class="card">
+  <div class="card-block" [routerLink]="['/user', user.login]">
+      <img src="{{ user.avatar_url }}" class="avatar" alt="" />
+      <div class="mr-3 m-auto" [routerLink]="['/user', user.login]">
+        <h2>
+          {{ user.name }}
+        </h2>
+        <h3 class="text-typo">{{ user.login }}</h3>
+      </div>
+      <div class="card-info">
+        <div *ngIf="user.hireable">
+          <span class="badge badge-secondary">hireable</span>
+        </div>
+        <div>
+          <i class="fas fa-chart-line" [ngClass]="getColor(user.followers)"></i>
+          <span i18n>{user.followers, plural, =0 {no follower} other {{{user.followers | number}} followers}}</span>
+        </div>
+        <div *ngIf="user.location">
+          <i class="fas fa-compass"></i>{{ user.location }}
+        </div>
+        <a *ngIf="user.blog" href="{{user.blog}}" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+  </div>
+</div>
+<!-- <div *ngIf="!users.length" class="card-block">No Results...</div> -->

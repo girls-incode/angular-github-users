@@ -1,0 +1,26 @@
+@import "../../../assets/variables";
+
+.mx-h {
+    min-height: 150px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.card {
+    padding: 20px;
+}
+
+.user-info {
+    h2 {
+        color: $color-gray-2;
+    }
+    > * {
+        margin-bottom: 7px;
+    }
+}
+
+article {
+    h2 {
+        margin-bottom: 10px;
+    }
+}

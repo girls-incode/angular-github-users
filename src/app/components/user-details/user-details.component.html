@@ -1,0 +1,86 @@
+<section>
+  <div class="row">
+    <div class="col-4">
+      <article class="card user-info">
+        <div class="text-center mb-3">
+          <img
+            src="{{ user.avatar_url }}"
+            alt=""
+            width="130"
+            height="130"
+            class="avatar mb-2"
+          />
+          <h1>{{ user.name }}</h1>
+          <h2 class="text-typo">
+            <a href="{{ user.html_url }}" target="_blank">
+              {{ user.login }}
+            </a>
+          </h2>
+          <div *ngIf="user.hireable">
+            <span class="badge badge-success">hireable</span>
+          </div>
+        </div>
+        <div *ngIf="user.location">
+          <i class="fas fa-compass"></i>{{ user.location }}
+        </div>
+        <div *ngIf="user.company">
+          <i class="fas fa-building"></i>{{ user.company }}
+        </div>
+        <div *ngIf="user.following">
+          <i class="fas fa-users"></i>follows {{ user.following }} users
+        </div>
+        <a *ngIf="user.blog" href="{{ user.blog }}" target="_blank">
+          <i class="fas fa-external-link-alt"></i>{{ user.blog }}
+        </a>
+        <a
+          *ngIf="user.twitter_username"
+          href="{{ user.twitter_username }}"
+          target="_blank"
+        >
+          <i class="fab fa-twitter"></i>@{{ user.twitter_username }}
+        </a>
+        <a *ngIf="user.email" href="mailto:{{ user.email }}">
+          <i class="fas fa-envelope"></i>{{ user.email }}
+        </a>
+      </article>
+    </div>
+    <div class="col-8">
+      <article class="card">
+        <h2 class="card-title-line">
+          Repos
+          <span class="badge badge-secondary">{{
+            user.public_repos | number
+          }}</span>
+        </h2>
+        <ul class="mx-h">
+          <li *ngFor="let repo of repos$ | async">
+            <i class="fas fa-caret-right"></i
+            ><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+          </li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="card-title-line">
+          Followers
+          <span class="badge badge-secondary">{{
+            user.followers | number
+          }}</span>
+        </h2>
+        <ul class="mx-h">
+          <li *ngFor="let follower of followers$ | async">
+            <a href="{{ follower.html_url }}" target="_blank">
+              <img
+                src="{{ follower.avatar_url }}"
+                class="avatar mr-2"
+                alt=""
+                width="30"
+                height="30"
+              />
+              {{ follower.login }}
+            </a>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
