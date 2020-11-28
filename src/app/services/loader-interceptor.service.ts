@@ -1,11 +1,9 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpResponse,
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
+  HttpEvent, HttpHandler,
+
+  HttpInterceptor, HttpRequest, HttpResponse
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoaderService } from './loader.service';
 
@@ -38,7 +36,6 @@ export class LoaderInterceptor implements HttpInterceptor {
           }
         },
         (err) => {
-          console.log('intercept: ' + err);
           this.removeRequest(req);
           observer.error(err);
         },

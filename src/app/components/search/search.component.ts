@@ -7,7 +7,7 @@ import {
   debounceTime,
   distinctUntilChanged,
   mergeMap,
-  switchMap,
+  switchMap
 } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
 
@@ -26,8 +26,6 @@ export class SearchComponent implements OnInit {
     private loc: Location,
     private route: Router
   ) {
-    console.log('route: ');
-
     this.searchField = new FormControl('', [
       Validators.required,
       Validators.minLength(3),
@@ -39,7 +37,6 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchService.currentMessage.subscribe((message: object) => {
-      console.log('SearchComponent', message);
     });
 
     this.searchField.valueChanges
@@ -68,7 +65,6 @@ export class SearchComponent implements OnInit {
         })
       )
       .subscribe((data: any) => {
-        console.log('searchField:', data);
         this.searchService.changeMessage(data || []);
       });
   }
