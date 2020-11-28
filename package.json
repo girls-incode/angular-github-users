@@ -5,10 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy-1": "git checkout -B gh-pages && git checkout master && git add dist",
+    "deploy-1": "git checkout -B gh-pages && git checkout master",
     "deploy-2": "cd dist && git add --all && git commit -m \"dist subtree commit\" && git push --set-upstream origin gh-pages",
     "deploy-3": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
-    "deploy": "npm run deploy-1 && npm run deploy-2 && npm run deploy-2",
+    "deploy": "npm run deploy-1 && npm run deploy-2 && npm run deploy-3",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
