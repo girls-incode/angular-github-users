@@ -8,34 +8,31 @@ import { environment } from '../../environments/environment';
 })
 export class SearchService {
   private domain = environment.GITHUB_API_URL;
-  private key = environment.GITHUB_API_KEY
-    ? '?access_token=' + environment.GITHUB_API_KEY
-    : '';
-  private userData = {};
+  private key = '';
+  private query = '?q=';
   private messageSource = new BehaviorSubject([]);
   currentMessage = this.messageSource.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    if (environment.GITHUB_API_KEY) {
+      this.key = '?access_token=' + environment.GITHUB_API_KEY;
+      this.query = '&q=';
+    }
+  }
 
   getAllUsers = (): Observable<any> =>
     this.http.get<any>(`${this.domain}/users${this.key}`);
 
   getUserByName = (userName: string): Observable<any> =>
-    this.http.get<any>(`${this.domain}/search/users${this.key}&q=${userName}`);
+    this.http.get<any>(
+      `${this.domain}/search/users${this.key}${this.query}${userName}`
+    );
 
   getUserDetails = (userName: string): Observable<any> =>
     this.http.get(`${this.domain}/users/${userName}${this.key}`);
 
   getUserByURL = (url: string): Observable<any> =>
     this.http.get<any>(url + this.key);
-
-  setData(data: any) {
-    this.userData = data;
-  }
-
-  getData() {
-    return this.userData;
-  }
 
   changeMessage(message: any): void {
     this.messageSource.next(message);
