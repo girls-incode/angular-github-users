@@ -61,11 +61,11 @@ export class SearchComponent implements OnInit {
               })
             );
           }
-          return of(null);
+          return of([]);
         })
       )
       .subscribe((data: any) => {
-        this.searchService.changeMessage(data || []);
+        this.searchService.changeMessage([this.searchField.value, data] || []);
       });
   }
 }

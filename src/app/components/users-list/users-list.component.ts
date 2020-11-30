@@ -11,17 +11,17 @@ import { User } from './../../models/user';
 export class UsersListComponent implements OnInit {
   users: User[] = [];
 
-  constructor(
-    private searchService: SearchService,
-  ) {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {
-    this.searchService.currentMessage.subscribe((res) => {
-      if (res.length) {
-        this.users = res;
+    this.searchService.currentMessage.subscribe((res: Array<any>) => {
+      const [searchText, data] = res;
+
+      if (data && data.length) {
+        this.users = data;
       } else {
-        // this.users = [];
-        this.getUsers();
+        if (searchText) { this.users = []; }
+        else { this.getUsers(); }
       }
     });
   }

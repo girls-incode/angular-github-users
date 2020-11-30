@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>There is some issue:</h1>
+  <div mat-dialog-content>
+    <p>
+      {{ data?.name }}
+      <em>(code: {{ data?.status }})</em>
+    </p>
+    <p>
+      {{ data?.message }}
+    </p>
+  </div>
+<div mat-dialog-actions>
+  <button mat-button mat-raised-button mat-dialog-close>Close</button>
+</div>

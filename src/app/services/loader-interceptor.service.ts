@@ -1,17 +1,22 @@
 import {
-  HttpEvent, HttpHandler,
-
-  HttpInterceptor, HttpRequest, HttpResponse
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ErrorDialogService } from './error-dialog.service';
 import { LoaderService } from './loader.service';
-
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
 
-  constructor(private loaderService: LoaderService) {}
+  constructor(
+    private loaderService: LoaderService,
+    private errorDialogService: ErrorDialogService
+  ) {}
 
   removeRequest(req: HttpRequest<any>): void {
     const i = this.requests.indexOf(req);
@@ -36,6 +41,7 @@ export class LoaderInterceptor implements HttpInterceptor {
           }
         },
         (err) => {
+          this.errorDialogService.openDialog(err);
           this.removeRequest(req);
           observer.error(err);
         },
