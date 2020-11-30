@@ -1,6 +1,8 @@
 ## Angular github apis consumer app
 
-![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg)
+**[Preview here](https://angular-github-users.netlify.app/)**
+
+![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg)\
 ![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-details.jpg)
 ### `Features`
 - Animated transition between pages
@@ -22,4 +24,4 @@
 > ng build --prod\
 > ng test
 
-``` sometimes you might see a blank page because of github api error : 403 (rate limit exceeded) ``` 
+*sometimes you might not see any search results because of github api 403 (rate limit exceeded)*
