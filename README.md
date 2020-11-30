@@ -2,9 +2,10 @@
 
 ### **[Preview here](https://angular-github-users.netlify.app/)**
 
-![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg)
+![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg?s=200)
 <br><br>
-![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-details.jpg)
+![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-details.jpg?s=200)
+
 ### `Features`
 - Animated transition between pages
 - Switch themes (light/dark)
