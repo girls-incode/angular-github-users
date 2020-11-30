@@ -44,3 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+dist/index.html
+dist/main.6492619d3409e893176f.js
