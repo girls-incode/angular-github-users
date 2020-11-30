@@ -2,9 +2,9 @@
 
 ### **[Preview here](https://angular-github-users.netlify.app/)**
 
-![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg?s=200)
-<br><br>
-![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-details.jpg?s=200)
+<img src="https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg" alt="" width="800px"/>
+<br>
+<img src="https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-details.jpg" alt="" width="800px"/>
 
 ### `Features`
 - Animated transition between pages
