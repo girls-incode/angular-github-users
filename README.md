@@ -1,6 +1,6 @@
 ## Angular github apis consumer app
 
-**[Preview here](https://angular-github-users.netlify.app/)**
+### **[Preview here](https://angular-github-users.netlify.app/)**
 
 ![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-list.jpg)\
 ![](https://github.com/girls-incode/angular-github-users/blob/master/angular-github-users-details.jpg)
