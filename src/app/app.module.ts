@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -33,7 +33,7 @@ import { GlobalErrorHandler } from './utils/global-error-handler';
     NotFoundComponent,
     SearchComponent,
     UserDetailsComponent,
-    UsersListComponent,
+    UsersListComponent
   ],
   imports: [
     AppRoutingModule,
@@ -47,15 +47,16 @@ import { GlobalErrorHandler } from './utils/global-error-handler';
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatToolbarModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ErrorDialogService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    LoaderService,
+    LoaderService
   ],
   entryComponents: [ErrorDialogComponent],
-  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
