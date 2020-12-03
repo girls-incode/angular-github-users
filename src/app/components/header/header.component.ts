@@ -6,17 +6,15 @@ import { UiService } from '../../services/ui.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   checked = false;
 
   constructor(private uiService: UiService) {}
 
-  ngOnInit(): void {}
-
-  changeTheme = (event: any) => {
+  changeTheme(event: any): void {
     this.checked = event.checked;
     return event.checked
       ? this.uiService.setTheme('dark-theme')
       : this.uiService.setTheme('');
-  };
+  }
 }

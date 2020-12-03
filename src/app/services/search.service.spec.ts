@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-
 import { SearchService } from './search.service';
 
-xdescribe('SearchService', () => {
+describe('SearchService', () => {
   let service: SearchService;
 
   beforeEach(() => {
