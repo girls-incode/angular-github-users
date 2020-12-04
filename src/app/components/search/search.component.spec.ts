@@ -5,10 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SearchService } from '../../services/search.service';
 import { of } from 'rxjs';
-// import { Router } from '@angular/router';
-// import { Location } from '@angular/common';
-// import { HttpClientModule } from '@angular/common/http';
-// import { HttpClient } from '@angular/common/http';
 class MockSearchService extends SearchService {
   getAllUsers = (): any => {
     return of('');
@@ -53,15 +49,16 @@ describe('SearchComponent', () => {
     // expect(componentService instanceof MockSearchService).toBeTruthy();
   });
 
-  it('invalid form', () => {
+  it('invalid form by default', () => {
     expect(component.searchForm.valid).toBeFalsy();
   });
 
-  it('form change the input', () => {
-    component.searchField.valueChanges.subscribe(res => {
-      expect(res).toEqual('ana');
-    });
+  it('change the input value will validate the form', () => {
+    // component.searchField.valueChanges.subscribe(res => {
+    //   expect(res).toEqual('ana');
+    // });
     component.searchField.setValue('ana');
+    expect(component.searchForm.valid).toBeTrue();
   });
 
   xit('search should return users', fakeAsync(() => {
@@ -77,14 +74,9 @@ describe('SearchComponent', () => {
       'email': null,
       'hireable': null,
     };
-
+    // spyOn(component.searchField, 'valueChanges').and.returnValue(of[response]);
     component.searchField.setValue('mojombo');
     fixture.detectChanges();
-    const req = httpTestingController.expectOne(
-      'https://api.github.com/users/mojombo'
-    );
-    expect(req.request.method).toEqual('GET');
-    req.flush(response);
     tick();
   })
   );
