@@ -6,8 +6,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class SearchService {
+  key = '';
   private domain = environment.GITHUB_API_URL;
-  private key = '';
   private query = '?q=';
   private messageSource = new BehaviorSubject([]);
   currentMessage = this.messageSource.asObservable();

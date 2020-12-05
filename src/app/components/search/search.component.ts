@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { forkJoin, of } from 'rxjs';
+import { forkJoin, of, Observable } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -36,10 +36,16 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchService.currentMessage.subscribe((message: object) => {
-    });
+    // this.searchService.currentMessage.subscribe((message: object) => {
+    // });
 
-    this.searchField.valueChanges
+    this.search().subscribe((data: any) => {
+      this.searchService.changeMessage([this.searchField.value, data] || []);
+    });
+  }
+
+  search(): Observable<Array<any>> {
+    return this.searchField.valueChanges
       .pipe(
         debounceTime(600),
         distinctUntilChanged(),
@@ -63,9 +69,6 @@ export class SearchComponent implements OnInit {
           }
           return of([]);
         })
-      )
-      .subscribe((data: any) => {
-        this.searchService.changeMessage([this.searchField.value, data] || []);
-      });
+    );
   }
 }
