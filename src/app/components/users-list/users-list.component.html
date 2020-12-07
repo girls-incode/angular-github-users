@@ -1,6 +1,6 @@
 <div *ngFor="let user of users" class="card">
   <div class="card-block" [routerLink]="['/user', user.login]">
-      <img src="{{ user.avatar_url }}" class="avatar" alt="" />
+      <img src="{{ user.avatar_url }}&s=60" class="avatar" alt="{{ user.login }}"/>
       <div class="mr-3 m-auto" [routerLink]="['/user', user.login]">
         <h2>
           {{ user.name }}

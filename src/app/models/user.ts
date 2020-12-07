@@ -1,21 +1,21 @@
 export interface User {
   avatar_url: string;
-  blog: string;
-  company: string;
-  created_at: string;
+  events_url: string;
   followers_url: string;
-  followers: number;
   following_url: string;
-  following: number;
-  hireable: boolean;
+  gists_url: string;
+  gravatar_id: string;
   html_url: string;
   id: number;
-  location: string;
   login: string;
-  name: string;
-  public_repos: number;
+  node_id: string;
+  organizations_url: string;
+  received_events_url: string;
   repos_url: string;
-  twitter_username: string;
-  updated_at: string;
+  score: number;
+  site_admin: boolean;
+  starred_url: string;
+  subscriptions_url: string;
+  type: string;
   url: string;
 }

@@ -10,7 +10,6 @@ import {
   switchMap
 } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -54,7 +53,7 @@ export class SearchComponent implements OnInit {
             if (this.loc.path()) {
               this.route.navigate(['/']);
             }
-            return this.searchService.getUserByName(term).pipe(
+            return this.searchService.getUsersByName(term).pipe(
               switchMap(({ items }) => {
                 const obs$ = items.map((item: any) => {
                   return this.searchService.getUserByURL(item.url);

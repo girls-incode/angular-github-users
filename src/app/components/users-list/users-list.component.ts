@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { forkJoin, of } from 'rxjs';
 import { mergeMap, switchMap } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
-import { User } from './../../models/user';
+import { UserInfo } from './../../models/user-info';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  users: User[] = [];
+  users: UserInfo[] = [];
 
   constructor(private searchService: SearchService) {}
 

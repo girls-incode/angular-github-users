@@ -22,13 +22,13 @@ export class SearchService {
   getAllUsers = (): Observable<any> =>
     this.http.get<any>(`${this.domain}/users${this.key}`);
 
-  getUserByName = (userName: string): Observable<any> =>
+  getUsersByName = (userName: string): Observable<any> =>
     this.http.get<any>(
       `${this.domain}/search/users${this.key}${this.query}${userName}`
     );
 
   getUserDetails = (userName: string): Observable<any> =>
-    this.http.get(`${this.domain}/users/${userName}${this.key}`);
+    this.http.get<any>(`${this.domain}/users/${userName}${this.key}`);
 
   getUserByURL = (url: string): Observable<any> =>
     this.http.get<any>(url + this.key);
